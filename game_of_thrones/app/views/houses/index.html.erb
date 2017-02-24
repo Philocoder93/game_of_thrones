@@ -1,0 +1,16 @@
+<h1>Houses#index</h1>
+<p>Find me in app/views/houses/index.html.erb</p>
+<%= link_to 'NEW', new_house_path %>
+<% @houses.each do |house|%>
+  <p><%= house.name %></p>
+  <%= image_tag(house.img_url, :alt => "This is an image") %>
+  <%= link_to 'EDIT', edit_house_path(house) %>
+  <%= link_to 'DELETE', house_path(house), method: :delete%>
+  <%= link_to 'SHOW', house_path(house) %>
+
+  <ul>
+  <% house.characters.each do |char| %>
+    <li><%= char.name %></li>
+  <% end %>
+  </ul>
+<% end %>

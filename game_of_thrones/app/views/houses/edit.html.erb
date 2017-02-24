@@ -1,0 +1,12 @@
+<h1>Houses#edit</h1>
+<p>Find me in app/views/houses/edit.html.erb</p>
+
+<%= form_for @house do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :house_word %>
+  <%= f.text_field :house_word %>
+  <%= f.label :img_url %>
+  <%= f.text_field :img_url %>
+  <%= f.submit "Update" %>
+<% end %>

@@ -1,0 +1,19 @@
+<h1>Houses#show</h1>
+<p>Find me in app/views/houses/show.html.erb</p>
+<p><%= @house.name %></p>
+<p><%= @house.house_word %></p>
+<%= image_tag(@house.img_url, :alt => 'this is an image') %>
+<%= link_to 'NEW CHARACTER', new_house_character_path(@house)%>
+<ul>
+<% @house.characters.each do |char| %>
+  <li><%= char.name %></li>
+  <% if char.dead == true %>
+    <li><%= char.name %> is dead!</li>
+  <% else %>
+    <li><%= char.name %> is not dead! (yet)</li>
+  <% end %>
+  <%= image_tag(char.img_url, :alt => 'this is an image') %>
+  <%= link_to 'DELETE', house_character_path(@house, char), method: :delete %>
+  <%= link_to 'EDIT', edit_house_character_path(@house, char) %>
+<% end %>
+</ul>
